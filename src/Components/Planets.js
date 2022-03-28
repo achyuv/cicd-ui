@@ -62,7 +62,7 @@ export function Planets() {
 
              
               <Row>
-                {planet.orgs.map((org)=>(<Col sm={6}>  <Orgs planetId = {planet.planetId} orgId={org.id} key={org.id}></Orgs></Col>))}
+                {planet.orgs.map((org)=>(<Col sm={6}>  <Orgs org={org} key={org.id}></Orgs></Col>))}
                
 
 

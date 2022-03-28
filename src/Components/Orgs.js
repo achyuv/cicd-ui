@@ -5,42 +5,23 @@ import { orgDetailsUrl } from '../Apis/Api';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export function Orgs({ orgId, planetId }) {
+export function Orgs({ org }) {
 
-    const [org, setOrg] = useState();
-
-    useEffect(() => {
-
-        getOrgApi();
-
-    }, [])
-
-    const getOrgApi = () => {
-
-        axios.get(orgDetailsUrl(orgId, planetId)).then((response) => {
-            const orgdata = response;
-            setOrg(orgdata.data);
-
-        }).catch(error => console.log(error));
-
-
-
-
-    }
+   
 
     return (
         <Card>
-            <Card.Body>
-                <Card.Title>Org ID: {orgId}</Card.Title>
+            {org && (<Card.Body>
+                <Card.Title>Org ID: { org.id}</Card.Title>
 
-                {org && (<ListGroup>
+                <ListGroup>
                     <ListGroup.Item><b>Org Name</b> : {org.orgName}</ListGroup.Item>
                     <ListGroup.Item><b>Org Credential</b> : {org.credential}</ListGroup.Item>
-                    <Environment></Environment>
+                    {org.env.map((environment)=><Environment env={environment}></Environment>)}
 
-                </ListGroup>)}
+                </ListGroup>
 
-            </Card.Body>
+            </Card.Body>)}
         </Card>
 
     );

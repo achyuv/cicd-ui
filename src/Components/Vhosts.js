@@ -2,18 +2,17 @@ import Card from 'react-bootstrap/Card';
 import {Environment} from './Environment';
 import ListGroup from 'react-bootstrap/ListGroup'
 
-export function Vhosts() {
+export function Vhosts({vhost}) {
     return (
         <Card>
   <Card.Body>
-  <Card.Title>Vhost Name ()</Card.Title>
+  <Card.Title><b>Vhost</b> :  {vhost.name}</Card.Title>
  
     <ListGroup>
-  <ListGroup.Item>Cname : name here</ListGroup.Item>
-  <ListGroup.Item>envName : Creds Here</ListGroup.Item>
-  <ListGroup.Item>Name : name here</ListGroup.Item>
-  <ListGroup.Item>Port : Creds Here</ListGroup.Item>
-  <ListGroup.Item>Protocol : Creds Here</ListGroup.Item>
+  <ListGroup.Item><b>Cname</b> :  {vhost.cname}</ListGroup.Item>
+ 
+  <ListGroup.Item><b>Port</b> :  {vhost.port}</ListGroup.Item>
+  <ListGroup.Item><b>protocol</b> :  {vhost.protocol}</ListGroup.Item>
 
  
 </ListGroup>

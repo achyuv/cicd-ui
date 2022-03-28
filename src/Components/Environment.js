@@ -3,21 +3,25 @@ import  Col  from 'react-bootstrap/Col';
 import  Row  from 'react-bootstrap/Row';
 import {Vhosts} from './Vhosts'
 
-export function Environment() {
+export function Environment({env}) {
+
+    //const [env, setEnv] = useState();
+
+ 
     return (
     
   
       <Accordion >
-    <Accordion.Item eventKey="0">
-      <Accordion.Header>Environment Name: ()</Accordion.Header>
+    <Accordion.Item eventKey={env.id}>
+      <Accordion.Header><b>Environment</b> : {env.name}</Accordion.Header>
       <Accordion.Body>
       <Row>
-      <Col sm={6}>  <Vhosts></Vhosts></Col>
-      <Col sm={6}>  <Vhosts></Vhosts></Col>
-      <Col sm={6}>  <Vhosts></Vhosts></Col>
+      {env.vhost?.map((individualVhost)=> <Col sm={6}>  <Vhosts vhost={individualVhost}></Vhosts></Col>)}
+     
   
       
         </Row>
+        {console.log(env.Vhosts)}
        
       </Accordion.Body>
     </Accordion.Item>
