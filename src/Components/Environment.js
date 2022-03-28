@@ -2,8 +2,9 @@ import  Accordion  from 'react-bootstrap/Accordion';
 import  Col  from 'react-bootstrap/Col';
 import  Row  from 'react-bootstrap/Row';
 import {Vhosts} from './Vhosts'
+import { AiOutlineEdit } from "react-icons/ai";
 
-export function Environment({env}) {
+export function Environment({env,orgId,planetId}) {
 
     //const [env, setEnv] = useState();
 
@@ -13,10 +14,10 @@ export function Environment({env}) {
   
       <Accordion >
     <Accordion.Item eventKey={env.id}>
-      <Accordion.Header><b>Environment</b> : {env.name}</Accordion.Header>
+      <Accordion.Header><b>Environment</b> : {env.name} <AiOutlineEdit /></Accordion.Header>
       <Accordion.Body>
       <Row>
-      {env.vhost?.map((individualVhost)=> <Col sm={6}>  <Vhosts vhost={individualVhost}></Vhosts></Col>)}
+      {env.vhost?.map((individualVhost)=> <Col sm={6}>  <Vhosts vhost={individualVhost} orgId={orgId} planetId={planetId} envId={env.id}></Vhosts></Col>)}
      
   
       
